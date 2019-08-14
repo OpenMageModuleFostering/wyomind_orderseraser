@@ -1,42 +1,18 @@
 <?xml version="1.0"?>
 <package>
     <name>Wyomind_OrdersEraser</name>
-    <version>4.0.3</version>
+    <version>4.0.5</version>
     <stability>stable</stability>
-    <license>Commercial</license>
+    <license>commercial</license>
     <channel>community</channel>
     <extends/>
-    <summary>Wyomind Orderseraser extension</summary>
-    <description>Wyomind Orderseraser extension</description>
-    <notes>test</notes>
-    <authors>
-        <author>
-            <name>Wyomind</name>
-            <user>Orderseraser</user>
-            <email>contact@wyomind.com</email>
-        </author>
-    </authors>
-    <date>2015-10-28</date>
-    <time>14:29:56</time>
-    <contents>
-        <target name="mage">
-            <dir name="Wyomind">
-                <file name="Orderseraser" hash=""/>
-            </dir>
-        </target>
-        <target name="mageetc">
-            <dir name="modules">
-                <file name="Wyomind_Orderseraser.xml" hash="21f24202ef69e71be030f0ebd62ab7f2"/>
-            </dir>
-        </target>
-    </contents>
+    <summary>order eraser</summary>
+    <description>order eraser</description>
+    <notes>v4.0.5</notes>
+    <authors><author><name>Wyomind</name><user>Wyomind</user><email>contact@wyomind.com</email></author></authors>
+    <date>2016-09-01</date>
+    <time>14:58:06</time>
+    <contents><target name="magecommunity"><dir><dir name="Wyomind"><dir name="Orderseraser"><dir><dir name="Model"><file name="Observer.php" hash="405a56fa978457a9a67f95c4f97cbe16"/><file name="Orderseraser.php" hash="e526e08d4b600653aa72e37000ff13e3"/></dir><dir name="controllers"><dir name="Adminhtml"><file name="OrderseraserController.php" hash="fb9ec155f7e795700d43a43548ebfc77"/></dir></dir><dir name="etc"><file name="config.xml" hash="2e1b69c7cc830e044eb88337d266ed7c"/><file name="system.xml" hash="8d37d12b5d8c5673eff53db06569ae8d"/></dir></dir></dir></dir></dir></target><target name="mageetc"><dir><dir name="modules"><file name="Wyomind_Orderseraser.xml" hash="21f24202ef69e71be030f0ebd62ab7f2"/></dir></dir></target></contents>
     <compatible/>
-    <dependencies>
-        <required>
-            <php>
-                <min>5.0.0</min>
-                <max>6.0.0</max>
-            </php>
-        </required>
-    </dependencies>
+    <dependencies><required><php><min>5.0.0</min><max>8.0.0</max></php></required></dependencies>
 </package>
