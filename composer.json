@@ -1,9 +1,9 @@
 {
     "name": "OpenMageModuleFostering/Wyomind_OrdersEraser",
     "type": "magento-module",
-    "license": "GPL",
+    "license": "Commercial",
     "homepage": "",
-    "description": "Orders eraser allows to simply clean your sales database by deleting any useless orders and linked invoices and/or shipping in once.",
+    "description": "Wyomind Orderseraser extension",
     "authors": [
     {
         "name": "Wyomind",

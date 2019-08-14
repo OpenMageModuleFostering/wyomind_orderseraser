@@ -1,18 +1,42 @@
 <?xml version="1.0"?>
 <package>
     <name>Wyomind_OrdersEraser</name>
-    <version>3.0.1</version>
+    <version>4.0.3</version>
     <stability>stable</stability>
-    <license>GPL</license>
+    <license>Commercial</license>
     <channel>community</channel>
     <extends/>
-    <summary>Orders eraser allows to simply clean your sales database by deleting any useless orders and linked invoices and/or shipping in once.</summary>
-    <description>Orders eraser allows to simply clean your sales database by deleting any useless orders and linked invoices and/or shipping in once.</description>
-    <notes>none</notes>
-    <authors><author><name>Wyomind</name><user>Pierre</user><email>contact@wyomind.com</email></author></authors>
-    <date>2012-04-10</date>
-    <time>10:05:24</time>
-    <contents><target name="mageetc"><dir name="modules"><file name="Wyomind_Orderseraser.xml" hash="43aa1ed1daf4f94fee1dddde51b9160c"/></dir></target><target name="magecommunity"><dir name="Wyomind"><dir name="Orderseraser"><dir name="Block"><dir name="Order"><file name="Grid.php" hash="4005a0d98668faa75bb080abc27008ba"/></dir></dir><dir name="Model"><file name="Orderseraser.php" hash="ad10c5807fdd519809ce5b132cc25f52"/></dir><dir name="controllers"><dir name="Adminhtml"><file name="OrderseraserController.php" hash="7ae57f8b115f99d72417917fb323dec3"/></dir></dir><dir name="etc"><file name="config.xml" hash="f804eafe8443e795744fa03d16df12d0"/></dir></dir></dir></target></contents>
+    <summary>Wyomind Orderseraser extension</summary>
+    <description>Wyomind Orderseraser extension</description>
+    <notes>test</notes>
+    <authors>
+        <author>
+            <name>Wyomind</name>
+            <user>Orderseraser</user>
+            <email>contact@wyomind.com</email>
+        </author>
+    </authors>
+    <date>2015-10-28</date>
+    <time>14:29:56</time>
+    <contents>
+        <target name="mage">
+            <dir name="Wyomind">
+                <file name="Orderseraser" hash=""/>
+            </dir>
+        </target>
+        <target name="mageetc">
+            <dir name="modules">
+                <file name="Wyomind_Orderseraser.xml" hash="21f24202ef69e71be030f0ebd62ab7f2"/>
+            </dir>
+        </target>
+    </contents>
     <compatible/>
-   
+    <dependencies>
+        <required>
+            <php>
+                <min>5.0.0</min>
+                <max>6.0.0</max>
+            </php>
+        </required>
+    </dependencies>
 </package>

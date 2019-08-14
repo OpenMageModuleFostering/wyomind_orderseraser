@@ -1,1 +1,57 @@
-<?phpclass Wyomind_Orderseraser_Adminhtml_OrderseraserController extends Mage_Adminhtml_Controller_Action {    public function getVersion() {        return substr(Mage::getVersion(), 0, 3);    }    protected function _initOrder() {        $id = $this->getRequest()->getParam('order_id');        $order = Mage::getModel('sales/order')->load($id);        if (!$order->getId()) {            $this->_getSession()->addError($this->__('This order no longer exists.'));            if (!$this->getRequest()->getParam('eraser'))                $this->_redirect('adminhtml/sales_order/');            else                $this->_redirect('orderseraser/adminhtml_orderseraser');            $this->setFlag('', self::FLAG_NO_DISPATCH, true);            return false;        }        Mage::register('sales_order', $order);        Mage::register('current_order', $order);        return $order;    }    public function massDeleteAction() {        $orderIds = $this->getRequest()->getPost('order_ids', array());        $countDeleteOrder = 0;        foreach ($orderIds as $orderId) {            if ($this->getVersion() <= 1.3 && Mage::getModel('orderseraser/orderseraser')->_erase($orderId))                $countDeleteOrder++;            elseif (Mage::getModel('sales/order')->load($orderId)->delete())                $countDeleteOrder++;        }        if ($countDeleteOrder > 0) {            $this->_getSession()->addSuccess($this->__('%s order(s) successfully deleted', $countDeleteOrder));        } else {            $this->_getSession()->addError($this->__('Unable to delete orders.'));        }        if (!$this->getRequest()->getParam('eraser'))            $this->_redirect('adminhtml/sales_order/');        else            $this->_redirect('orderseraser/adminhtml_orderseraser');    }    public function deleteAction() {        if ($order = $this->_initOrder()) {            try {                if ($this->getVersion() <= 1.3)                    Mage::getModel('orderseraser/orderseraser')->_erase($order->getId());                else                    $order->delete();                $this->_getSession()->addSuccess(                        $this->__('Order was successfully deleted.')                );            } catch (Mage_Core_Exception $e) {                $this->_getSession()->addError($e->getMessage());            } catch (Exception $e) {                $this->_getSession()->addError($this->__('Unable to delete order.'));            }            if (!$this->getRequest()->getParam('eraser'))                $this->_redirect('adminhtml/sales_order/');            else                $this->_redirect('orderseraser/adminhtml_orderseraser');        }    }}
+<?php
+
+class Wyomind_Orderseraser_Adminhtml_OrderseraserController extends Mage_Adminhtml_Controller_Action {
+
+    public function getVersion() {
+        return substr(Mage::getVersion(), 0, 3);
+    }
+
+   
+
+    public function massDeleteAction() {
+
+        $orderIds = $this->getRequest()->getPost('order_ids', array());
+        $countDeleteOrder = 0;
+        foreach ($orderIds as $orderId) {
+            if (version_compare(Mage::getVersion(), '1.3.0', '<=') && Mage::getModel('orderseraser/orderseraser')->_erase1($orderId))
+                $countDeleteOrder++;
+            elseif (Mage::getModel('orderseraser/orderseraser')->_erase2($orderId))
+                $countDeleteOrder++;
+        }
+        if ($countDeleteOrder > 0) {
+            $this->_getSession()->addSuccess($this->__('%s order(s) successfully deleted', $countDeleteOrder));
+        } else {
+            $this->_getSession()->addError($this->__('Unable to delete orders.'));
+        }
+       
+        $this->_redirect('adminhtml/sales_order/');
+       
+    }
+
+    public function deleteAction() {
+
+        if ($orderId = $this->getRequest()->getParam('order_id')) {
+		
+            try {
+
+                if (version_compare(Mage::getVersion(), '1.3.0', '<='))
+                    Mage::getModel('orderseraser/orderseraser')->_erase1($orderId);
+                else
+					
+					Mage::getModel('orderseraser/orderseraser')->_erase2($orderId);
+
+                $this->_getSession()->addSuccess(
+                        $this->__('Order was successfully deleted.')
+                );
+            } catch (Mage_Core_Exception $e) {
+                $this->_getSession()->addError($e->getMessage());
+            } catch (Exception $e) {
+                $this->_getSession()->addError($this->__('Unable to delete order.'));
+            }
+           
+            $this->_redirect('adminhtml/sales_order/');
+           
+        }
+    }
+
+}
