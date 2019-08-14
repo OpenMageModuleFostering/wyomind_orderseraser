@@ -1,14 +1,17 @@
 <?php
 
-class Wyomind_Orderseraser_Adminhtml_OrderseraserController extends Mage_Adminhtml_Controller_Action {
+class Wyomind_Orderseraser_Adminhtml_OrderseraserController extends Mage_Adminhtml_Controller_Action
+{
 
-    public function getVersion() {
+    public function getVersion() 
+    {
         return substr(Mage::getVersion(), 0, 3);
     }
 
    
 
-    public function massDeleteAction() {
+    public function massDeleteAction() 
+    {
 
         $orderIds = $this->getRequest()->getPost('order_ids', array());
         $countDeleteOrder = 0;
@@ -28,20 +31,21 @@ class Wyomind_Orderseraser_Adminhtml_OrderseraserController extends Mage_Adminht
        
     }
 
-    public function deleteAction() {
+    public function deleteAction() 
+    {
 
         if ($orderId = $this->getRequest()->getParam('order_id')) {
-		
+        
             try {
 
                 if (version_compare(Mage::getVersion(), '1.3.0', '<='))
                     Mage::getModel('orderseraser/orderseraser')->_erase1($orderId);
                 else
-					
-					Mage::getModel('orderseraser/orderseraser')->_erase2($orderId);
+                    
+                    Mage::getModel('orderseraser/orderseraser')->_erase2($orderId);
 
                 $this->_getSession()->addSuccess(
-                        $this->__('Order was successfully deleted.')
+                    $this->__('Order was successfully deleted.')
                 );
             } catch (Mage_Core_Exception $e) {
                 $this->_getSession()->addError($e->getMessage());

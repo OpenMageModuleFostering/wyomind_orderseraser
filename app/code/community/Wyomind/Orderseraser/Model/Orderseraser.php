@@ -1,9 +1,11 @@
 <?php
 
 
-class Wyomind_Orderseraser_Model_Orderseraser extends Varien_Object {
+class Wyomind_Orderseraser_Model_Orderseraser extends Varien_Object
+{
 
-    public function _erase1($orderId) {
+    public function _erase1($orderId) 
+    {
 
         $resource = Mage::getSingleton('core/resource');
         $delete = $resource->getConnection('core_read');
@@ -28,7 +30,8 @@ class Wyomind_Orderseraser_Model_Orderseraser extends Varien_Object {
 
         return true;
     }
-	public function _erase2($orderId) {
+    public function _erase2($orderId) 
+    {
 
         $resource = Mage::getSingleton('core/resource');
         $delete = $resource->getConnection('core_read');
@@ -37,7 +40,7 @@ class Wyomind_Orderseraser_Model_Orderseraser extends Varien_Object {
         
 
         $sql = "DELETE FROM " . $tableSfo . " WHERE entity_id = " . $orderId . ";";
-		
+        
         $delete->query($sql);
         $sql = "DELETE FROM  " . $tableSfog . " WHERE entity_id = " . $orderId . ";";
         $delete->query($sql);

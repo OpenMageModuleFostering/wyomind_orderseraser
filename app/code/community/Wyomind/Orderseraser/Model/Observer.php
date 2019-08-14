@@ -1,8 +1,10 @@
 <?php
 
-class Wyomind_Orderseraser_Model_Observer {
+class Wyomind_Orderseraser_Model_Observer
+{
 
-    public function addActionColumn(Varien_Event_Observer $observer) {
+    public function addActionColumn(Varien_Event_Observer $observer) 
+    {
 
         $block = $observer->getEvent()->getBlock();
         $this->_block = $block;
@@ -21,7 +23,8 @@ class Wyomind_Orderseraser_Model_Observer {
 
 
 
-                $block->addColumnAfter('Delete', array(
+                $block->addColumnAfter(
+                    'Delete', array(
                     'header' => Mage::helper('sales')->__('Delete'),
                     'width' => '50px',
                     'type' => 'action',
@@ -30,14 +33,16 @@ class Wyomind_Orderseraser_Model_Observer {
                     'filter' => false,
                     'sortable' => false,
                     'is_system' => true,
-                        ), 'status');
+                    ), 'status'
+                );
             }
         }
 
         return $observer;
     }
 
-    public function addMassAction($observer) {
+    public function addMassAction($observer) 
+    {
 
         $block = $observer->getEvent()->getBlock();
         $this->_block = $block;
@@ -45,10 +50,12 @@ class Wyomind_Orderseraser_Model_Observer {
                 && $block->getRequest()->getControllerName() == 'sales_order') {
            
 
-            $block->addItem('delete_order', array(
+            $block->addItem(
+                'delete_order', array(
                 'label' => Mage::helper('sales')->__('Delete'),
                 'url' => $block->getUrl('*/orderseraser/massdelete'),
-            ));
+                )
+            );
         }
     }
 

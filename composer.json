@@ -1,9 +1,9 @@
 {
     "name": "OpenMageModuleFostering/Wyomind_OrdersEraser",
     "type": "magento-module",
-    "license": "commercial",
+    "license": "Commercial",
     "homepage": "",
-    "description": "order eraser",
+    "description": "Wyomind Ordereraser extension",
     "authors": [
     {
         "name": "Wyomind",
