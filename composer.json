@@ -1,16 +1,19 @@
 {
-    "name": "OpenMageModuleFostering/Wyomind_OrdersEraser",
+    "name": "OpenMageModuleFostering\/Wyomind_OrdersEraser",
     "type": "magento-module",
     "license": "Commercial",
     "homepage": "",
     "description": "Wyomind Ordereraser extension",
     "authors": [
-    {
-        "name": "Wyomind",
-        "email": "contact@wyomind.com"
-    }
-],
+        {
+            "name": "Wyomind",
+            "email": "contact@wyomind.com"
+        }
+    ],
     "suggest": {
-        "magento-hackathon/magento-composer-installer": "*"
-    }
+        "magento-hackathon\/magento-composer-installer": "*"
+    },
+    "keywords": [
+        "openmage-module"
+    ]
 }
